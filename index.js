@@ -18,11 +18,11 @@ const background = new Sprite ({
 
 const floatingIsland = new Sprite ({
     position: {
-        x: 660,
+        x: 690,
         y: 45
     },
     imageSrc: './img/floatingisland.png',
-    scale: 0.8,
+    scale: 2,
     framesMax: 7
 })
 
