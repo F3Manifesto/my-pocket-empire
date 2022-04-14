@@ -1,60 +1,135 @@
-<head>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        * {
-            box-sizing: border-box;
+      @media only screen and (max-width: 576px) {
+        body {
+          width: 100% !important;
         }
+
+        #main-title {
+          width: 60%;
+        }
+
+        .main-wrapper-mobile {
+          align-items: flex-end;
+          justify-content: flex-end;
+          width: 100%;
+          height: 100%;
+        }
+
+        .main-wrapper-mobile #main-title {
+          margin-bottom: 100px;
+          width: 80% !important;
+        }
+
+        .main-wrapper-mobile .last-link {
+          margin-bottom: 70px;
+        }
+
+        .main-wrapper {
+          display: none !important;
+        }
+      }
+
+      @media only screen and (min-width: 576px) {
+        .main-wrapper-mobile {
+          display: none !important;
+        }
+
+        .main-wrapper {
+          display: block;
+        }
+      }
     </style>
-</head>
-
-<body>
-    <!-- main container -->
-    <div style="position: relative; display: inline-block;">
-
-        <!-- health bar element -->
-        <div style="position: absolute; display: flex; width: 100%; align-items: center; padding: 20px;">
-            <!-- player health -->
-            <div style="position: relative; width: 100%; display: flex; justify-content: flex-end; 
-            border-top: 4px solid white;
-            border-bottom: 4px solid white;
-            border-left: 4px solid white">
-                <div style="background-color: red; height: 30px; width: 100%">         
-                </div>
-                <div id="playerHealth" 
-                     style="position: absolute; background-color: #2a1723; top: 0; right: 0; bottom: 0; width: 100%"></div>
-            </div>        
-
-            <!-- timer -->
-            <div 
-                id = "timer"
-                style="background-color: #45313d; width: 50px; height: 50px; flex-shrink: 0; border: 4px solid white;
-                       display: flex; align-items: center; justify-content: center; color: white"
-                        >    
-                10        
-            </div>
-
-            <!-- enemy health -->
-            <div style="position: relative; width: 100%; 
-            border-top: 4px solid white;
-            border-bottom: 4px solid white;
-            border-right: 4px solid white">
-                <div style="background-color: red; height: 30px">         
-                </div>
-                <div id="enemyHealth" 
-                     style="position: absolute; background-color: #2a1723; top: 0; right: 0; bottom: 0; left: 0"></div>
-            </div>
-        </div>
-        <div 
-                id= "displayText"
-                style="position: absolute; color: white; align-items: center; justify-content: center; 
-                top: 0; bottom: 0; right: 0; left: 0;
-                display: none">
-                    Tie
-                </div>
-        <canvas></canvas>
+  </head>
+  <body style="margin: 0; width: fit-content">
+    <img
+      src="./img/main.gif"
+      style="
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      "
+    />
+    <div
+      class="main-wrapper"
+      style="display: flex; flex-direction: column; align-items: center"
+    >
+      <img
+        id="main-title"
+        src="./img/title.png"
+        style="width: 392px; position: relative; z-index: 1"
+      />
+      <a href="./loading.html">
+        <img
+          src="./img/playbutton.png"
+          style="position: relative; z-index: 1; width: 150px"
+        />
+      </a>
+      <img
+        src="./img/runstory.png"
+        class="last-link"
+        style="position: relative; z-index: 1; width: 180px"
+      />
     </div>
+    <div
+      id="backdrop-mobile"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        display: none;
+        background: rgba(255, 255, 255, 0.38);
+      "
+      onclick="mobileClose()"
+    >
+      <img
+        src="./img/mypocketempire.png"
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 90%;
+          transform: translate(-50%, -50%);
+        "
+      />
+    </div>
+    <div
+      class="main-wrapper-mobile"
+      style="display: flex; flex-direction: column; align-items: center"
+    >
+      <img
+        id="main-title"
+        src="./img/title.png"
+        style="width: 392px; position: relative; z-index: 1"
+      />
+      <img
+        src="./img/playbutton.png"
+        style="position: relative; z-index: 1; width: 150px"
+        onclick="onMobilePlay()"
+      />
+      <img
+        src="./img/runstory.png"
+        class="last-link"
+        style="position: relative; z-index: 1; width: 180px"
+      />
+    </div>
+  </body>
+  <script>
+    function onMobilePlay() {
+      document.querySelector("#backdrop-mobile").style.display = "block";
+    }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/classes.js"></script>
-   <script src="index.js"></script>
-</body>
+    function mobileClose() {
+      document.querySelector("#backdrop-mobile").style.display = "none";
+    }
+  </script>
+</html>
