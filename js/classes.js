@@ -33,7 +33,7 @@ class Sprite {
     );
   }
 
-  animateFrames() {
+  moveFrames() {
     this.framesElapsed++;
     if (this.framesElapsed % this.framesHold === 0) {
       if (this.framesCurrent < this.framesMax - 1) {
@@ -47,7 +47,7 @@ class Sprite {
   update() {
     this.draw();
 
-    this.animateFrames();
+    this.moveFrames();
   }
 }
 
@@ -118,7 +118,7 @@ class Fighter extends Sprite {
   update() {
     this.draw();
 
-    if (!this.dead) this.animateFrames();
+    if (!this.dead) this.moveFrames();
 
     // attack box
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;

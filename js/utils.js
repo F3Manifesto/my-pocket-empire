@@ -16,11 +16,11 @@ function determineWinner({ player, enemy, timerId }) {
   document.querySelector("#displayText").style.display = "flex";
   document.querySelector("#backdrop").style.display = "block";
   if (player.health === enemy.health) {
-    document.querySelector("#text").innerHTML = "GAME OVER. IT'S A TIE!";
+    document.querySelector("#text").innerHTML = "GG. IT'S A TIE. KEEP TRAINING.";
   } else if (player.health > enemy.health) {
-    document.querySelector("#text").innerHTML = "GAME OVER. PLAYER ONE WINS!";
+    document.querySelector("#text").innerHTML = "GG. ARO, YOU WIN.";
   } else if (enemy.health > player.health) {
-    document.querySelector("#text").innerHTML = "GAME OVER. PLAYER TWO WINS!";
+    document.querySelector("#text").innerHTML = "GAME OVER. THE WIZARD GAINS VICTORY.";
   }
 }
 
@@ -45,4 +45,6 @@ function playAgain() {
   document.querySelector("#displayText").style.display = "none";
   document.querySelector("#backdrop").style.display = "none";
   decreaseTimer();
+  location.reload();
+
 }

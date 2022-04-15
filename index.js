@@ -43,7 +43,7 @@ const player = new Fighter({
   framesMax: 6,
   scale: 1.3,
   offset: {
-    x: -80,
+    x: -150,
     y: 15,
   },
   sprites: {
@@ -70,12 +70,12 @@ const player = new Fighter({
     attack1: {
       imageSrc: "./img/aro/attackjan.png",
       framesMax: 3,
-      scale: 1.3,
+      scale: 0.8,
     },
     takeHit: {
       imageSrc: "./img/aro/gethitjan.png",
       framesMax: 4,
-      scale: 0.5,
+      scale: 0.8,
     },
     death: {
       imageSrc: "./img/aro/deathjan.png",
@@ -97,22 +97,22 @@ const player = new Fighter({
 const enemy = new Fighter({
   position: {
     x: 400,
-    y: 100,
+    y: 80,
   },
   velocity: {
     x: 0,
     y: 0,
   },
   offset: {
-    x: -50,
-    y: 0,
+    x: -20,
+    y: -5,
   },
     imageSrc: "./img/wizard/wizidle.png",
     framesMax: 10,
     scale: 0.6,
     offset: {
       x: -200,
-      y: 10,
+      y: -20,
     },
     sprites: {
       idle: {
@@ -126,38 +126,38 @@ const enemy = new Fighter({
         scale: 0.6,
       },
       jump: {
-        imageSrc: "./img/aro/jumpjan.png",
+        imageSrc: "./img/wizard/wizjump.png",
+        framesMax: 4,
+        scale: 1.8,
+      },
+      fall: {
+        imageSrc: "./img/wizard/wizfall.png",
         framesMax: 4,
         scale: 0.6,
       },
-      fall: {
-        imageSrc: "./img/aro/falljan.png",
-        framesMax: 2,
-        scale: 1.3,
-      },
       attack1: {
-        imageSrc: "./img/aro/attackjan.png",
-        framesMax: 3,
+        imageSrc: "./img/wizard/wizattack.png",
+        framesMax: 4,
         scale: 0.6,
       },
       takeHit: {
-        imageSrc: "./img/aro/gethitjan.png",
-        framesMax: 4,
+        imageSrc: "./img/wizard/wiztakehit.png",
+        framesMax: 3,
         scale: 0.6,
       },
       death: {
-        imageSrc: "./img/aro/deathjan.png",
-        framesMax: 6,
+        imageSrc: "./img/wizard/wizdeath.png",
+        framesMax: 10,
         scale: 0.6,
       },
   },
   attackBox: {
     offset: {
-      x: 100,
-      y: 30,
+      x: 10,
+      y: 10,
     },
-    width: -100,
-    height: 50,
+    width: 300,
+    height: 20,
   },
 });
 
@@ -180,8 +180,8 @@ let lastKey;
 
 decreaseTimer();
 
-function animate() {
-  window.requestAnimationFrame(animate);
+function move() {
+  window.requestAnimationFrame(move);
   c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height);
   background.update();
@@ -284,7 +284,7 @@ function animate() {
   }
 }
 
-animate();
+move();
 
 window.addEventListener("keydown", (event) => {
   if (!player.dead) {
