@@ -43,7 +43,7 @@ const player = new Fighter({
   framesMax: 6,
   scale: 1.3,
   offset: {
-    x: -30,
+    x: -80,
     y: 15,
   },
   sprites: {
@@ -107,49 +107,49 @@ const enemy = new Fighter({
     x: -50,
     y: 0,
   },
-  imageSrc: "./img/wizard/wizidle.png",
-  framesMax: 10,
-  scale: 1.3,
-  offset: {
-    x: -200,
-    y: 15,
-  },
-  sprites: {
-    idle: {
-      imageSrc: "./img/wizard/wizidle.png",
-      framesMax: 10,
-      scale: 1.3,
+    imageSrc: "./img/wizard/wizidle.png",
+    framesMax: 10,
+    scale: 0.6,
+    offset: {
+      x: -200,
+      y: 10,
     },
-    run: {
-      imageSrc: "./img/wizard/wizrun.png",
-      framesMax: 4,
-      scale: 1.3,
-    },
-    jump: {
-      imageSrc: "./img/wizard/wizjump.png",
-      framesMax: 4,
-      scale: 1.3,
-    },
-    fall: {
-      imageSrc: "./img/wizard/wizfall.png",
-      framesMax: 2,
-      scale: 1.3,
-    },
-    attack1: {
-      imageSrc: "./img/wizard/wizattack.png",
-      framesMax: 4,
-      scale: 1.3,
-    },
-    takeHit: {
-      imageSrc: "./img/wizard/wiztakehit.png",
-      framesMax: 2,
-      scale: 1.3,
-    },
-    death: {
-      imageSrc: "./img/wizard/wizdeath.png",
-      framesMax: 2,
-      scale: 1.3,
-    },
+    sprites: {
+      idle: {
+        imageSrc: "./img/wizard/wizidle.png",
+        framesMax: 10,
+        scale: 0.6,
+      },
+      run: {
+        imageSrc: "./img/wizard/wizrun.png",
+        framesMax: 6,
+        scale: 0.6,
+      },
+      jump: {
+        imageSrc: "./img/aro/jumpjan.png",
+        framesMax: 4,
+        scale: 0.6,
+      },
+      fall: {
+        imageSrc: "./img/aro/falljan.png",
+        framesMax: 2,
+        scale: 1.3,
+      },
+      attack1: {
+        imageSrc: "./img/aro/attackjan.png",
+        framesMax: 3,
+        scale: 0.6,
+      },
+      takeHit: {
+        imageSrc: "./img/aro/gethitjan.png",
+        framesMax: 4,
+        scale: 0.6,
+      },
+      death: {
+        imageSrc: "./img/aro/deathjan.png",
+        framesMax: 6,
+        scale: 0.6,
+      },
   },
   attackBox: {
     offset: {
