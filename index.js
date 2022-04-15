@@ -80,7 +80,7 @@ const player = new Fighter({
     death: {
       imageSrc: "./img/aro/deathjan.png",
       framesMax: 6,
-      scale: 1.3,
+      scale: 0.65,
     },
   },
   // extend full width of attack
@@ -230,18 +230,18 @@ function move() {
   }
 
   /*console.log({
-    collision: rectangularCollision({ rectangle1: player, rectangle2: enemy }),
+    collision: attackSprite({ rectangle1: player, rectangle2: enemy }),
   });
 
   console.log({
-    collision1: rectangularCollision({ rectangle1: enemy, rectangle2: player }),
+    collision1: attackSprite({ rectangle1: enemy, rectangle2: player }),
   });
   console.log({ attacking: player.isAttacking });
   console.log({ current: player.framesCurrent });*/
 
   // detect for collision
   if (
-    rectangularCollision({ rectangle1: player, rectangle2: enemy }) &&
+    attackSprite({ rectangle1: player, rectangle2: enemy }) &&
     player.isAttacking &&
     player.framesCurrent === 2 // frame in which attack hits the enemy
   ) {
@@ -260,7 +260,7 @@ function move() {
   }
 
   if (
-    rectangularCollision({ rectangle1: enemy, rectangle2: player }) &&
+    attackSprite({ rectangle1: enemy, rectangle2: player }) &&
     enemy.isAttacking &&
     enemy.framesCurrent === 2 // frame in which attack hits the enemy
   ) {

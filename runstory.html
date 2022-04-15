@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      @media screen and (max-width: 576px) {
+        #story {
+          position: relative !important;
+          width: 100%;
+          height: auto !important;
+        }
+
+        #actions {
+          position: relative !important;
+          display: flex !important;
+          gap: 1rem;
+          flex-direction: row !important;
+          padding: 1rem !important;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #actions img {
+          height: 30px !important;
+          width: auto !important;
+        }
+
+        #train {
+          width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; width: fit-content; background: black">
+    <video
+      id="story"
+      style="
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      "
+      autoplay
+      muted
+    >
+      <source src="./video/storyvideo.mp4" type="video/mp4" />
+    </video>
+    <div
+      id="actions"
+      style="
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      "
+    >
+      <a href="./loading.html">
+        <img
+          id="train"
+          src="./img/train.png"
+          style="position: relative; z-index: 1; width: 150px; cursor: pointer"
+        />
+      </a>
+      <img
+        src="./img/replay.png"
+        class="last-link"
+        style="position: relative; z-index: 1; width: 150px; cursor: pointer"
+        onclick="onReplay()"
+      />
+    </div>
+  </body>
+  <script>
+    document.querySelector("#story").addEventListener("ended", ended, false);
+
+    function ended() {
+      document.querySelector("#actions").style.display = "flex";
+    }
+
+    function onReplay() {
+      document.querySelector("#story").play();
+    }
+  </script>
+</html>

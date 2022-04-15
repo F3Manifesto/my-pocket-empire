@@ -37,7 +37,7 @@ class Sprite {
     this.framesElapsed++;
     if (this.framesElapsed % this.framesHold === 0) {
       if (this.framesCurrent < this.framesMax - 1) {
-        this.framesCurrent++
+        this.framesCurrent++;
       } else {
         this.framesCurrent = 0;
       }
@@ -127,7 +127,7 @@ class Fighter extends Sprite {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y; // add for each frame looped
 
-  /*  c.fillRect(
+    /*  c.fillRect(
       this.attackBox.position.x,
       this.attackBox.position.y,
       this.attackBox.width,
@@ -152,7 +152,6 @@ class Fighter extends Sprite {
   takeHit() {
     this.switchSprite("takeHit");
     this.health -= 20;
-
     if (this.health <= 0) {
       this.switchSprite("death");
     } else this.switchSprite("takeHit");
@@ -168,13 +167,15 @@ class Fighter extends Sprite {
     // overriding all other sprite sheets
     if (
       this.image === this.sprites.attack1.image &&
-      this.framesCurrent < this.sprites.attack1.framesMax - 1
+      this.framesCurrent < this.sprites.attack1.framesMax - 1 &&
+      this.health > 0
     )
       return;
 
     if (
       this.image === this.sprites.takeHit.image &&
-      this.framesCurrent < this.sprites.takeHit.framesMax - 1
+      this.framesCurrent < this.sprites.takeHit.framesMax - 1 &&
+      this.health > 0
     )
       return;
 
@@ -224,6 +225,14 @@ class Fighter extends Sprite {
           this.image = this.sprites.takeHit.image;
           this.framesMax = this.sprites.takeHit.framesMax;
           this.scale = this.sprites.takeHit.scale;
+          this.framesCurrent = 0;
+        }
+        break;
+      case "death":
+        if (this.image !== this.sprites.death.image) {
+          this.image = this.sprites.death.image;
+          this.framesMax = this.sprites.death.framesMax;
+          this.scale = this.sprites.death.scale;
           this.framesCurrent = 0;
         }
         break;
