@@ -99,6 +99,8 @@ class Fighter extends Sprite {
     }
   }
 
+
+
   //   draw() {
   //     c.fillStyle = this.color;
   //     c.fillRect(this.position.x, this.position.y, this.width, this.height);
@@ -239,3 +241,4 @@ class Fighter extends Sprite {
     }
   }
 }
+
